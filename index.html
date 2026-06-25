@@ -193,7 +193,8 @@ code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-family:'D
     <div class="inote"><strong>Campos:</strong> <code>date</code>, <code>time</code>, <code>sport</code> (soccer/basketball/nfl/tennis), <code>competition</code>, <code>name</code>, <code>teams</code>, <code>details</code></div>
     <div class="mfooter">
       <button class="btn" onclick="closeModal('modal-import')">Cancelar</button>
-      <button class="btn btn-primary" id="import-btn" onclick="confirmImport()" style="display:none">Importar eventos</button>
+      <button class="btn" id="import-btn-add" onclick="confirmImport('add')" style="display:none">+ Adicionar</button>
+      <button class="btn btn-primary" id="import-btn" onclick="confirmImport('replace')" style="display:none">🔄 Substituir tudo</button>
     </div>
   </div>
 </div>
@@ -379,6 +380,9 @@ function openImport(){
   document.getElementById('import-preview').style.display='none';
   document.getElementById('import-preview').textContent='';
   document.getElementById('import-btn').style.display='none';
+  document.getElementById('import-preview').textContent='';
+  document.getElementById('import-btn').style.display='none';
+  document.getElementById('import-btn-add').style.display='none';
   document.getElementById('file-input').value='';
   openModal('modal-import');
 }
@@ -398,6 +402,7 @@ function handleFile(file){
       prev.style.display='block';
       prev.textContent=`${parsed.length} evento(s):\n\n`+parsed.slice(0,5).map(e=>`${e.date} | ${e.sport} | ${e.name}`).join('\n')+(parsed.length>5?`\n... +${parsed.length-5}`:'');
       document.getElementById('import-btn').style.display='inline-flex';
+      document.getElementById('import-btn-add').style.display='inline-flex';
     }catch(err){toast('Erro: '+err.message,'error');}
   };
   reader.readAsText(file);
@@ -408,9 +413,9 @@ function parseCSV(text){
   const headers=lines[0].split(sep).map(h=>h.trim().replace(/^"|"$/g,'').toLowerCase());
   return lines.slice(1).map(line=>{const vals=line.split(sep).map(v=>v.trim().replace(/^"|"$/g,''));const o={};headers.forEach((h,i)=>{o[h]=vals[i]||''});return o;});
 }
-function confirmImport(){
+function confirmImport(mode){
   if(!pendingImport)return;
-  const replace=confirm('OK → SUBSTITUIR todos os eventos\nCancelar → ADICIONAR aos existentes');
+  const replace=(mode==='replace');
   events=replace?pendingImport:[...events,...pendingImport];
   save();renderAll();closeModal('modal-import');
   toast(`✓ ${pendingImport.length} evento(s) importado(s)!`,'success');pendingImport=null;
