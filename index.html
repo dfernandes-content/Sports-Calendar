@@ -203,7 +203,7 @@ code{background:var(--surface2);padding:1px 5px;border-radius:4px;font-family:'D
 
 <script>
 // ── DATA ──────────────────────────────────────────────────────
-const KEY = 'sports_cal_v5'; // bump version to force reload of new events
+const KEY = 'sports_cal_v7'; // bump version to force reload of new events
 const PRESETS = {
   soccer:['Copa do Mundo','Copa Libertadores','Copa do Brasil','Campeonato Brasileiro','Champions League','Premier League','La Liga','Bundesliga','Serie A','Ligue 1'],
   basketball:['NBA Finals','NBA Playoffs','NBA Regular Season'],
@@ -552,28 +552,36 @@ function defaultEvents(){return[
   {id:uid(),date:'2026-06-27',time:'23h00',sport:'soccer',competition:'Copa do Mundo',name:'Grupo J',teams:'Jordânia x Argentina',details:"AT&T Stadium, Arlington"},
   // ── TÊNIS — Wimbledon ──
   {id:uid(),date:'2026-06-29',time:'Diurno (Londres)',sport:'tennis',competition:'Wimbledon',name:'Wimbledon 2026 — Início',teams:'128 tenistas',details:'All England Club, Londres · Grama · 139ª edição'},
-  // ── COPA DO MUNDO — Mata-mata ──
-  {id:uid(),date:'2026-06-29',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — 32-avos de final (1/8)',teams:'A definir',details:''},
-  {id:uid(),date:'2026-06-30',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — 32-avos de final (2/8)',teams:'A definir',details:''},
-  {id:uid(),date:'2026-07-01',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — 32-avos de final (3/8)',teams:'A definir',details:''},
-  {id:uid(),date:'2026-07-02',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — 32-avos de final (4/8)',teams:'A definir',details:''},
-  {id:uid(),date:'2026-07-03',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — 32-avos de final (5/8)',teams:'A definir',details:''},
-  {id:uid(),date:'2026-07-04',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — 32-avos de final (6/8)',teams:'A definir',details:''},
-  {id:uid(),date:'2026-07-05',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — 32-avos de final (7/8)',teams:'A definir',details:''},
-  {id:uid(),date:'2026-07-06',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — 32-avos de final (8/8)',teams:'A definir',details:''},
-  {id:uid(),date:'2026-07-07',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — Oitavas de final (1/4)',teams:'A definir',details:''},
-  {id:uid(),date:'2026-07-08',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — Oitavas de final (2/4)',teams:'A definir',details:''},
-  {id:uid(),date:'2026-07-09',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — Oitavas de final (3/4)',teams:'A definir',details:''},
-  {id:uid(),date:'2026-07-10',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — Oitavas de final (4/4)',teams:'A definir',details:''},
+  // ── COPA DO MUNDO — Mata-mata: 16-avos de final ──
+  {id:uid(),date:'2026-06-28',time:'16h00',sport:'soccer',competition:'Copa do Mundo',name:'16-avos de final ✅',teams:'Canadá 1 x 0 África do Sul',details:'Los Angeles · Gol: S. Eustaquio · Canadá nas oitavas'},
+  {id:uid(),date:'2026-06-29',time:'14h00',sport:'soccer',competition:'Copa do Mundo',name:'16-avos de final ✅ 🇧🇷',teams:'Brasil 2 x 1 Japão · CLASSIFICADO!',details:'Houston · Virada brasileira · Próximo: 5/jul em Nova Jersey'},
+  {id:uid(),date:'2026-06-29',time:'17h30',sport:'soccer',competition:'Copa do Mundo',name:'16-avos de final ✅ (pênaltis)',teams:'Alemanha 1(4) x (3)1 Paraguai',details:'Boston · Alemanha venceu nos pênaltis'},
+  {id:uid(),date:'2026-06-29',time:'22h00',sport:'soccer',competition:'Copa do Mundo',name:'16-avos de final ✅ (pênaltis)',teams:'Holanda 1(3) x (2)1 Marrocos',details:'Monterrey, México · Holanda venceu nos pênaltis'},
+  {id:uid(),date:'2026-06-30',time:'14h00',sport:'soccer',competition:'Copa do Mundo',name:'16-avos de final ✅',teams:'Costa do Marfim 1 x 2 Noruega',details:'Dallas · Noruega avança às oitavas — enfrenta o vencedor de Brasil x Japão... aguardando definição do outro lado da chave'},
+  {id:uid(),date:'2026-06-30',time:'18h00',sport:'soccer',competition:'Copa do Mundo',name:'16-avos de final',teams:'França x Suécia',details:'Nova York/Nova Jersey'},
+  {id:uid(),date:'2026-06-30',time:'22h00',sport:'soccer',competition:'Copa do Mundo',name:'16-avos de final',teams:'México x Equador',details:'Cidade do México'},
+  {id:uid(),date:'2026-07-01',time:'13h00',sport:'soccer',competition:'Copa do Mundo',name:'16-avos de final',teams:'Inglaterra x RD Congo',details:'Atlanta'},
+  {id:uid(),date:'2026-07-01',time:'17h00',sport:'soccer',competition:'Copa do Mundo',name:'16-avos de final',teams:'Bélgica x Senegal',details:'Seattle'},
+  {id:uid(),date:'2026-07-01',time:'21h00',sport:'soccer',competition:'Copa do Mundo',name:'16-avos de final',teams:'Estados Unidos x Bósnia e Herzegovina',details:'Santa Clara'},
+  {id:uid(),date:'2026-07-02',time:'16h00',sport:'soccer',competition:'Copa do Mundo',name:'16-avos de final',teams:'Espanha x Áustria',details:'Los Angeles'},
+  {id:uid(),date:'2026-07-02',time:'20h00',sport:'soccer',competition:'Copa do Mundo',name:'16-avos de final',teams:'Portugal x Croácia',details:'Toronto'},
+  {id:uid(),date:'2026-07-03',time:'00h00',sport:'soccer',competition:'Copa do Mundo',name:'16-avos de final',teams:'Suíça x Argélia',details:'Vancouver'},
+  {id:uid(),date:'2026-07-03',time:'15h00',sport:'soccer',competition:'Copa do Mundo',name:'16-avos de final',teams:'Austrália x Egito',details:'Dallas'},
+  {id:uid(),date:'2026-07-03',time:'19h00',sport:'soccer',competition:'Copa do Mundo',name:'16-avos de final',teams:'Argentina x Cabo Verde',details:'Miami'},
+  {id:uid(),date:'2026-07-03',time:'22h30',sport:'soccer',competition:'Copa do Mundo',name:'16-avos de final',teams:'Colômbia x Gana',details:'Kansas City'},
+  // ── OITAVAS DE FINAL ──
+  {id:uid(),date:'2026-07-04',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Oitavas de final',teams:'A definir',details:'4 jogos'},
+  {id:uid(),date:'2026-07-05',time:'17h00',sport:'soccer',competition:'Copa do Mundo',name:'Oitavas de final 🇧🇷',teams:'Brasil x Noruega',details:'Nova Jersey · Adversário definido'},
+  {id:uid(),date:'2026-07-06',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Oitavas de final',teams:'A definir',details:'4 jogos'},
+  {id:uid(),date:'2026-07-07',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Oitavas de final',teams:'A definir',details:'4 jogos'},
   {id:uid(),date:'2026-07-11',time:'Diurno (Londres)',sport:'tennis',competition:'Wimbledon',name:'Wimbledon 2026 — Final Feminina',teams:'A definir',details:'All England Club, Wimbledon'},
   {id:uid(),date:'2026-07-12',time:'Diurno (Londres)',sport:'tennis',competition:'Wimbledon',name:'Wimbledon 2026 — Final Masculina',teams:'A definir',details:'All England Club, Wimbledon'},
-  {id:uid(),date:'2026-07-09',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — Quartas de final (1/2)',teams:'A definir',details:''},
-  {id:uid(),date:'2026-07-10',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — Quartas de final (2/2)',teams:'A definir',details:''},
-  {id:uid(),date:'2026-07-11',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — Quartas de final (3/4)',teams:'A definir',details:''},
-  {id:uid(),date:'2026-07-12',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — Quartas de final (4/4)',teams:'A definir',details:''},
-  {id:uid(),date:'2026-07-14',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — Semifinal 1',teams:'A definir',details:'EUA'},
-  {id:uid(),date:'2026-07-15',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — Semifinal 2',teams:'A definir',details:'EUA'},
-  {id:uid(),date:'2026-07-18',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo — 3º lugar',teams:'A definir',details:'Hard Rock Stadium, Miami'},
+  {id:uid(),date:'2026-07-09',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Quartas de final',teams:'A definir',details:'Miami'},
+  {id:uid(),date:'2026-07-10',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Quartas de final',teams:'A definir',details:'Miami'},
+  {id:uid(),date:'2026-07-11',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Quartas de final',teams:'A definir',details:'Miami'},
+  {id:uid(),date:'2026-07-14',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Semifinal 1',teams:'A definir',details:'Atlanta'},
+  {id:uid(),date:'2026-07-15',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Semifinal 2',teams:'A definir',details:'Atlanta'},
+  {id:uid(),date:'2026-07-18',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'3º lugar',teams:'A definir',details:'Hard Rock Stadium, Miami'},
   {id:uid(),date:'2026-07-19',time:'A confirmar',sport:'soccer',competition:'Copa do Mundo',name:'Copa do Mundo 2026 — FINAL 🏆',teams:'A definir',details:'MetLife Stadium, Nova Jersey'},
   // ── COPA LIBERTADORES 2026 ──
   {id:uid(),date:'2026-08-11',time:'21h30 (Brasília)',sport:'soccer',competition:'Copa Libertadores',name:'Copa Libertadores 2026 — Oitavas (ida)',teams:'Flamengo, Corinthians, Palmeiras, Fluminense, Cruzeiro, Mirassol',details:'11-13 de agosto'},
